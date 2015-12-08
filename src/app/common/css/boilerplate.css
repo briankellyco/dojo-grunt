@@ -1,0 +1,115 @@
+
+body {
+    margin-top: 100px;
+}
+
+#container {
+    width: 80%;
+    margin: 0px auto;
+}
+.stitchedBorder {
+    width: 80%;
+    border: 1px solid lightgrey;
+    border-style: dashed;
+    border-width: 3px;
+    border-radius: 10px;
+    padding: 0px 10px 10px 10px;
+}
+
+#outer {
+    width: 1554px;
+    height: 412px;
+    border: 1px solid #000;
+}
+
+.inner {
+    position: relative;
+    transform: translate(0px, -50%);
+    border: 1px solid #AA0000;
+    top: 50%;
+}
+
+
+.navigationDiv{
+    float: right;
+}
+
+.navlist li
+{
+    display: inline;
+    list-style-type: none;
+    padding-right: 10px;
+}
+
+.navlist li a {
+    color: lightgrey;
+}
+
+/*#panelEditor { display: none;}*/
+
+
+
+.box {
+    width: 20%;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.2);
+    padding: 35px;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+}
+
+.button {
+    font-size: 1em;
+    padding: 10px;
+    color: #fff;
+    border: 2px solid orange;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.button:hover {
+    background: orange;
+}
+
+.overlayForModal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlayForModal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: orange;
+}

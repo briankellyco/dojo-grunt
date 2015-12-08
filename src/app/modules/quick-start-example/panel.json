@@ -1,0 +1,9 @@
+{
+    "name": "Example Panel",
+    "description": "A panel used to illustrate RuBANs extensibility",
+    "glyph": "coffee",
+   	"defaults": {
+   		"title": "Custom Panel Example",
+   		"details": "mmmm coffee..."
+    }
+}

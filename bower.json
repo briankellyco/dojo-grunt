@@ -1,0 +1,17 @@
+{
+  "name": "dapp",
+  "version": "0.0.0",
+  "dependencies": {
+    "dojox": "dojo/dojox#1.9.1",
+    "dojo": "dojo/dojo#1.9.1",
+    "dijit": "dojo/dijit#1.9.1",
+    "util": "dojo/util#1.9.1",
+    "dojox_application": "dmachi/dojox_application#1.9.1",
+    "d3": "3.5.3",
+    "jquery": "~2.1.4"
+  },
+  "resolutions": {
+    "d3": "3.5.3",
+    "dijit": "~1.10.4"
+  }
+}

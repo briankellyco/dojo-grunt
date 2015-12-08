@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test harness to help build modules</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="../../bower_components/dojox/mobile/themes/custom/custom.css">
+    <link rel="stylesheet" href="common/css/boilerplate.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script type="text/javascript"
+            src="../../bower_components/dojo/dojo.js"
+            data-dojo-config="async: true, isDebug: true,
+            baseUrl: '../../',
+            paths: {
+                'app': 'src/app',
+                'dojo': 'bower_components/dojo',
+                'dojox': 'bower_components/dojox',
+                'dijit': 'bower_components/dijit',
+                'jquery': 'bower_components/jquery/dist/jquery',
+                'ruban': 'src/app/common/ruban',
+                'common-js': 'src/app/common/js',
+                'module-in-development': 'src/app/modules/quick-start-example'
+            }">
+    </script>
+
+    <script>
+
+        require([
+            "dojo/dom-construct",
+            "dojo/_base/window",
+            'jquery',
+            'ruban/panel',
+            "common-js/load-css",
+            "dojo/text!module-in-development/view.html",
+            "dojo/text!module-in-development/editor.html",
+            "dojo/text!module-in-development/panel.json",
+            'module-in-development/panel',
+        ], function (domConstruct, win, $, ParentPanel, loadcss, templateView, templateEditor, templateJSON, Panel) {
+            'use strict';
+
+
+            domConstruct.place(templateView, 'panelView');
+            domConstruct.place(templateEditor, 'panelEditor');
+            //loadcss("../modules/quick-start-example/styles.css");
+            loadcss("styles.min.css");
+
+            var configObj = JSON.parse(templateJSON);
+
+            var panel = new Panel();
+
+            var context = context || {};
+
+            context = {
+
+                config: configObj,
+
+                getConfig: function () {
+                    return this.config.defaults;
+                },
+
+                getConfigObject: function () {
+                    return this.config;
+                },
+
+                getDom: function () {
+                    return $(document).get(0);
+                },
+
+                saveConfig: function (config) {
+                    console.log("context save function called.");
+                    this.config.defaults = config;
+                    panel.initView(context);
+                }
+            };
+
+            panel.initView(context);
+
+
+            $("#edit").click(function () {
+                panel.initEditor(context);
+            });
+
+            $("#save").click(function () {
+                window.location.hash = ''; // remove :target from URL.
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div id="container">
+
+    <div class="stitchedBorder">
+
+        <div class="navigationDiv">
+            <ul class="navlist">
+                <li><a href="#openModal" id="edit" class="fa fa-pencil"></a></li>
+            </ul>
+        </div>
+
+        <div id="panelView"></div>
+
+        <div id="openModal" class="overlayForModal">
+            <div id="panelEditor" class="popup">
+                <a class="close" href="#">×</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
