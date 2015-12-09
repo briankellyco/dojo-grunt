@@ -1,5 +1,6 @@
 node_modules
 bower_components
+json_requests
 src/app/styles.min.css
 
 # intellij module
