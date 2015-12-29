@@ -7,6 +7,6 @@ Yeoman was leveraged at the beginning to provide a skeleton framework for the gr
 The application utilises grunt, bower, livereload and dojo.
 
 Run the application with:  
-	bower install  
-	npm update  
-	grunt  
+    bower install  
+    npm update  
+    grunt  
