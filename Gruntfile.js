@@ -53,19 +53,18 @@ module.exports = function (grunt) {
         },
         less: {
             dev: {
-                files: {
-                    // option #1 - compile less to single css file
-                    '<%= config.app %>/styles.min.css': [
-                        '<%= config.app %>/modules/{,*/}*.less',
-                        '<%= config.app %>/common/{,*/}*.less',
-                    ]
-
-                    // option #2 - compile less to multiple css files
-                    //files: [
-                    //    {"modules/quick-start-example/styles.css" : "modules/quick-start-example/styles.less"},
-                    //    {"modules/dummy-top-line-metrics/styles.css" : "modules/dummy-top-line-metrics/styles.less"}
-                    //]
-                },
+                // option #1 - compile less to multiple css files
+                files: [
+                    {"<%= config.app %>/modules/quick-start-example/styles.css" : "<%= config.app %>/modules/quick-start-example/styles.less"},
+                    {"<%= config.app %>/modules/map/styles.css" : "<%= config.app %>/modules/map/styles.less"}
+                ],
+                // option #2 - compile less to single css file
+                //files: {
+                //    //'<%= config.app %>/styles.min.css': [
+                //    //    '<%= config.app %>/modules/{,*/}*.less',
+                //    //    '<%= config.app %>/common/{,*/}*.less',
+                //    //]
+                //},
                 options: {
                     compress: true,
                     yuicompress: true,
